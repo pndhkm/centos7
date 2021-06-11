@@ -138,7 +138,8 @@ echo   ""
 echo   "VPN username = $NAME   password = $PASS"
 echo   "============================================================"
 sleep 2
-
+firewall-cmd --permanent --new-service=pptp
+firewall-cmd --reload
 service pptpd restart
 
 exit 0
