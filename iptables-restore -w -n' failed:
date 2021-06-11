@@ -1,0 +1,9 @@
+Error: COMMAND_FAILED: Direct: '/usr/sbin/iptables-restore -w -n' failed: iptables-restore v1.4.21: The -t option (seen in line 4) cannot be used in iptables-restore.
+
+Error occurred at line: 4
+Try `iptables-restore -h' or 'iptables-restore --help' for more information
+
+
+This indicates a direct rule failed to apply. Which likely means you have an invalid rule in your configuration, direct.xml. You can get more information by setting IndividualCalls=yes in /etc/firewalld/firewalld.conf. Or you can add --debug=3 in /etc/sysconfig/firewalld.
+
+Then restart firewalld, systemctl restart firewalld.
