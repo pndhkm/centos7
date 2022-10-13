@@ -24,7 +24,7 @@ function versions() {
         echo "Litespeed|: $ls"
         echo "Database|: $db"
         echo "PHP|: $php"
-        echo "Jetbackup|: "jetbackup()
+        echo "Jetbackup|: "jetbackup
 }
 
 versions | column -t -s'|'
