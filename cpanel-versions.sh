@@ -6,15 +6,15 @@ function versions() {
         ls=$(/usr/local/lsws/bin/lshttpd -v | cut -d "/" -f2)
         db=$(mysql --version | awk '{print $1"-"$5}' | cut -d ',' -f1)
         php=$(php -v | awk 'NR==1 {print $2}')
-        jb=$(jetbackup --version | awk 'NR==1 {print $2}'  2>/dev/null )
-        jb5=$(jetbackup5 --version | awk 'NR==1 {print $2}'  2>/dev/null )
+        jb=$(jetbackup --version | awk 'NR==1 {print $2}')
+        jb5=$(jetbackup5 --version | awk 'NR==1 {print $2}')
         echo "Operating Systems|: $os"
         echo "Hostname|: $HOSTNAME"
         echo "WHM/Cpanel|: $cp"
         echo "Litespeed|: $ls"
         echo "Database|: $db"
         echo "PHP|: $php"
-        echo "Jetbackup|: $jb||$jb5"
+        echo "Jetbackup|: $jb 2>/dev/null ||$jb5"
 }
 
 versions | column -t -s'|'
