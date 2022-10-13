@@ -1,4 +1,3 @@
-
 #!/usr/bin/bash
 
 function versions() {
@@ -8,13 +7,14 @@ function versions() {
         db=$(mysql --version | awk '{print $1"-"$5}' | cut -d ',' -f1)
         php=$(php -v | awk 'NR==1 {print $2}')
         jb=$(jetbackup --version | awk 'NR==1 {print $2}')
+        jb5=$(jetbackup --version | awk 'NR==1 {print $2}')
         echo "Operating Systems|: $os"
         echo "Hostname|: $HOSTNAME"
         echo "WHM/Cpanel|: $cp"
         echo "Litespeed|: $ls"
         echo "Database|: $db"
         echo "PHP|: $php"
-        echo "Jetbackup|: $jb"
+        echo "Jetbackup|: $jb||$jb5"
 }
 
 versions | column -t -s'|'
