@@ -2,7 +2,7 @@
 
 jb_not_found() {
   if type "$1" >/dev/null 2>&1; then # if given a valid command
-    "$@"                             # run that command with original arguments
+    jb=$(jetbackup --version | awk 'NR==1 {print $2}')
   else
     jb=$(jetbackup5 --version | awk 'NR==1 {print $2}')
   fi
@@ -22,7 +22,7 @@ function versions() {
         echo "Litespeed|: $ls"
         echo "Database|: $db"
         echo "PHP|: $php"
-        echo "Jetbackup|: $(jb_not_found $jb)"
+        echo "Jetbackup|: $(jb_not_found)"
 }
 
 versions | column -t -s'|'
